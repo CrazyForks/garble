@@ -577,7 +577,7 @@ func TestReplaceGoAsmNamesPreservesOtherIdentifiers(t *testing.T) {
 func TestReverseContentPreservesRuntimeFrames(t *testing.T) {
 	const input = "runtime.main()\n	runtime/proc.go:1 +0x1\nruntime.goexit()\n	runtime/asm_amd64.s:1 +0x1\n"
 	var out strings.Builder
-	modified, err := reverseContent(&out, strings.NewReader(input), strings.NewReplacer())
+	modified, err := reverseContent(&out, strings.NewReader(input), strings.NewReplacer(), nil)
 	if err != nil {
 		t.Fatal(err)
 	}
